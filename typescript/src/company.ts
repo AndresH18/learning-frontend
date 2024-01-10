@@ -1,9 +1,10 @@
 import {Employee} from "./employee.js";
+import {IEmployee} from "./IEmployee.js";
 
 export class Company {
-    private employees: Employee[] = []
+    private employees: IEmployee[] = []
 
-    add(employee: Employee): void {
+    add(employee: IEmployee): void {
         this.employees.push(employee)
     }
 

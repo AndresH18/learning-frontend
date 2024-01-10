@@ -1,6 +1,9 @@
-export class Employee {
+import {IEmployee} from "./IEmployee.js";
+
+export class Employee implements IEmployee{
     constructor(private _name: string, private _currentProject: string) {
     }
+
 
     get name(): string {
         return this._name;

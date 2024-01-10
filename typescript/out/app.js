@@ -8,4 +8,6 @@ company.add(e1);
 company.add(e2);
 company.add(e3);
 var names = company.getEmployeesNames();
+var projects = company.getProjectsList();
 console.log(names);
+console.log(projects);

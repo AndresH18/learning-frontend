@@ -1,8 +1,16 @@
-import {Employee} from "./employee.js";
+import {IEmployee} from "./IEmployee.js";
 
-export class Frontend extends Employee {
-    public hi(): void {
-        console.log("Helo")
+export class Frontend implements IEmployee {
+
+    constructor(private _name: string, private _currentProject: string) {
+    }
+
+    get currentProject(): string {
+        return this._currentProject;
+    }
+
+    get name(): string {
+        return this._name;
     }
 
 }
