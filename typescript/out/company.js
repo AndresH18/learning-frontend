@@ -1,15 +1,27 @@
 var Company = /** @class */ (function () {
-    function Company() {
-        this.employees = [];
+    function Company(_location) {
+        this._location = _location;
     }
     Company.prototype.add = function (employee) {
-        this.employees.push(employee);
+        this._location.addPerson(employee);
     };
     Company.prototype.getProjectsList = function () {
-        return this.employees.map(function (e) { return e.currentProject; });
+        var projects = [];
+        for (var i = 0; i < this._location.getCount(); i++) {
+            var employee = this._location.getPerson(i);
+            if (employee)
+                projects.push(employee.currentProject);
+        }
+        return projects;
     };
     Company.prototype.getEmployeesNames = function () {
-        return this.employees.map(function (e) { return e.name; });
+        var names = [];
+        for (var i = 0; i < this._location.getCount(); i++) {
+            var employee = this._location.getPerson(i);
+            if (employee)
+                names.push(employee.name);
+        }
+        return names;
     };
     return Company;
 }());

@@ -1,18 +1,33 @@
-import {Employee} from "./employee.js";
 import {IEmployee} from "./IEmployee.js";
+import {ILocation} from "./ILocation.js";
+import {Employee} from "./employee.js";
 
 export class Company {
-    private employees: IEmployee[] = []
 
-    add(employee: IEmployee): void {
-        this.employees.push(employee)
+    constructor(private _location: ILocation) {
+    }
+
+    add(employee: Employee): void {
+        this._location.addPerson(employee)
     }
 
     getProjectsList(): string[] {
-        return this.employees.map(e => e.currentProject)
+        const projects: string[] = []
+        for (let i = 0; i < this._location.getCount(); i++) {
+            let employee = this._location.getPerson(i)
+            if (employee)
+                projects.push(employee.currentProject)
+        }
+        return projects
     }
 
-    getEmployeesNames() : string[] {
-        return this.employees.map(e => e.name)
+    getEmployeesNames(): string[] {
+        const names: string[] = []
+        for (let i = 0; i < this._location.getCount(); i++) {
+            let employee = this._location.getPerson(i)
+            if (employee)
+                names.push(employee.name)
+        }
+        return names
     }
 }

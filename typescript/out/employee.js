@@ -23,6 +23,14 @@ var Employee = /** @class */ (function () {
         enumerable: false,
         configurable: true
     });
+    Employee.fromJSON = function (json) {
+        console.log(json);
+        var parsed = JSON.parse(json);
+        return new Employee(parsed._name, parsed._currentProject);
+    };
+    Employee.prototype.toJSON = function () {
+        return JSON.stringify({ _name: this._name, _currentProject: this._currentProject });
+    };
     return Employee;
 }());
 export { Employee };
