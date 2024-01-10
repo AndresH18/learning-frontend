@@ -1,0 +1,11 @@
+import { Employee } from "./employee.js";
+import { Frontend } from "./frontend.js";
+import { Backend } from "./backend.js";
+import { Company } from "./company.js";
+var e1 = new Employee("Andres", "Super project 1"), e2 = new Frontend("David", "Frontend project 1"), e3 = new Backend("Davdres", "Backend project 1");
+var company = new Company();
+company.add(e1);
+company.add(e2);
+company.add(e3);
+var names = company.getEmployeesNames();
+console.log(names);
